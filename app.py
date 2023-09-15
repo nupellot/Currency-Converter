@@ -27,6 +27,7 @@ def convert_currency():
 
     exchange_rates = get_exchange_rates()
 
+    # Ввиду особой структуры ответа от сайта приходится разбивать нашу обработку на 3 части.
     if from_currency == "RUB":
         if to_currency in exchange_rates:
             rate = exchange_rates[to_currency]["Value"]
