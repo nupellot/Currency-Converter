@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import requests
 
 app = Flask(__name__)
@@ -9,12 +9,14 @@ def get_exchange_rates():
     try:
         response = requests.get("https://www.cbr-xml-daily.ru/daily_json.js")
         data = response.json()
+        # print(data)
         return data["Valute"]
     except Exception as e:
         print("Ошибка при получении курсов валют:", str(e))
         return {}
 
 
+# Пример запроса - /api/rates?from=USD&to=RUB&value=1
 # Основная функция для конвертации валют.
 @app.route('/api/rates', methods=['GET'])
 def convert_currency():
@@ -49,6 +51,18 @@ def convert_currency():
             return jsonify({"error": "Курс для одной или обеих валют не найден"}), 404
 
     return jsonify({"result": round(result, 2)})
+
+
+@app.route('/', methods=['GET'])
+def main_page():
+    exchange_rates = get_exchange_rates()
+    # print(exchange_rates)
+
+    valutes = {}
+    for valute in exchange_rates:
+        valutes[valute] = exchange_rates[valute]["Name"]
+    # print(valutes)
+    return render_template("index.html", valutes=valutes)
 
 
 if __name__ == '__main__':

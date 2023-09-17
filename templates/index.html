@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Конвертер валют</title>
+    <link rel="stylesheet" href="{{ url_for("static", filename="style.css") }}">
+</head>
+<body>
+    <main>
+        <h1>Конвертер валют</h1>
+        <div class="description">
+            Сервис для конвертации валют, работающий по API
+            <div class="command-description">
+                Пример GET-запроса
+            </div>
+            <code class="command">
+                /api/rates?from=USD&to=RUB&value=1
+            </code>
+            <div class="result-description">
+                Пример ответа сервера
+            </div>
+            <code class="result">
+                {
+                    "result": 62.16
+                }
+            </code>
+        </div>
+        <div class="valutes">
+            {% for valute in valutes %}
+                <div class="valute">
+                    {{ valute }} - {{ valutes[valute] }}
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+
+
+</body>
+</html>
