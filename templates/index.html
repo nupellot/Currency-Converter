@@ -8,6 +8,7 @@
 <body>
     <main>
         <h1>Конвертер валют</h1>
+        <h2>Описание</h2>
         <div class="description">
             Сервис для конвертации валют, работающий по API
             <div class="command-description">
@@ -25,10 +26,11 @@
                 }
             </code>
         </div>
-        <div class="valutes">
-            {% for valute in valutes %}
-                <div class="valute">
-                    {{ valute }} - {{ valutes[valute] }}
+        <h2>Доступные валюты</h2>
+        <div class="currencies">
+            {% for currency in currencies %}
+                <div class="currency">
+                    {{ currency }} - {{ currencies[currency] }}
                 </div>
             {% endfor %}
         </div>

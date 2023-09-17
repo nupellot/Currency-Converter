@@ -58,11 +58,11 @@ def main_page():
     exchange_rates = get_exchange_rates()
     # print(exchange_rates)
 
-    valutes = {}
-    for valute in exchange_rates:
-        valutes[valute] = exchange_rates[valute]["Name"]
-    # print(valutes)
-    return render_template("index.html", valutes=valutes)
+    currencies = {}
+    for currency in exchange_rates:
+        currencies[currency] = exchange_rates[currency]["Name"]
+    # print(currencies)
+    return render_template("index.html", currencies=currencies)
 
 
 if __name__ == '__main__':

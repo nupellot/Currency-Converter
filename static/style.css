@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;0,800;0,900;1,300&family=Pacifico&display=swap');
+
+body {
+    font-family: Montserrat, sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    min-width: 75%;
+}
+
+main > div {
+    margin-bottom: 20px;
+}
+
+.description, .currencies {
+    padding: 10px;
+    background: #f3f3f3;
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+}
+
+.description {
+    font-size: 1.2rem;
+}
+
+.command-description, .result-description {
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+
+.command, .result {
+    font-size: 1.1rem;
+}
